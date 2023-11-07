@@ -53,7 +53,7 @@ public class CheckoutServiceImpl implements CheckoutService{
 
         //save to the database
 
-        //customerRepository.save(customer);
+
         cartRepository.save(cart);
 
         cart.setStatus(Cart.StatusType.ordered);
