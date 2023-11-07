@@ -44,6 +44,13 @@ public class Cart {
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart_id")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
     private Set<CartItem> cartItem;
+
+    @Enumerated(EnumType.STRING)
+    private StatusType status;
+
+    public enum StatusType {
+        pending, ordered, canceled
+    }
 }

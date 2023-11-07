@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Setter
@@ -37,4 +38,9 @@ public class Excursion {
     @ManyToOne
     @JoinColumn(name = "vacation_id", nullable = false)
     private Vacation vacation;
+
+    @ManyToMany(mappedBy = "excursions")
+    private Set<CartItem> cartitems;
+
+
 }
