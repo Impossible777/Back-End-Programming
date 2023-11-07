@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.Date;
 import java.util.Set;
@@ -14,6 +15,7 @@ import java.util.Set;
 @Table(name="customers")
 @Getter
 @Setter
+@CrossOrigin("http://localhost:4200")
 public class Customer {
 
     @Id
