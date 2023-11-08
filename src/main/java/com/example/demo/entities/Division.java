@@ -9,6 +9,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "divisions")
@@ -40,9 +42,16 @@ public class Division {
 
     @Column(name = "country_id")
     private long country_id;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "division")
+    private Set<Customer> customer = new HashSet<>();
+
+
     public void setCountry(Country country) {
         setCountry_id(country.getId());
         this.country = country;
     }
+
+
 
 }
